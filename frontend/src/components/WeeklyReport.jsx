@@ -123,7 +123,7 @@ export default function WeeklyReport({ referenceDate, onPrevWeek, onNextWeek, on
                                 <stop offset="95%" stopColor="#ef4444" stopOpacity={0.2} />
                             </linearGradient>
                         </defs>
-                        < CartesianGrid strokeDasharray="6 6" stroke="rgba(255,255,255,0.03)" vertical={false} />
+                        <CartesianGrid strokeDasharray="6 6" stroke="rgba(255,255,255,0.03)" vertical={false} />
                         <XAxis
                             dataKey="day"
                             tick={{ fill: '#64748b', fontSize: 10, fontWeight: 800, textTransform: 'uppercase' }}

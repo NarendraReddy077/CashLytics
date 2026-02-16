@@ -37,7 +37,10 @@ class TransactionService:
         response = (
             await supabase.table("transactions").insert(payload).execute()
         )
+        if not response.data:
+            raise Exception("Failed to create transaction or zero rows returned")
         return response.data[0]
+
 
     @staticmethod
     async def update(transaction_id: str, user_id: str, data: dict) -> dict | None:

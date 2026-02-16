@@ -2,7 +2,10 @@ import axios from 'axios';
 import { supabase } from '../supabaseClient';
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || '/api',
+    // Ensure the baseURL points to the /api prefix
+    baseURL: import.meta.env.VITE_API_URL
+        ? (import.meta.env.VITE_API_URL.endsWith('/api') ? import.meta.env.VITE_API_URL : `${import.meta.env.VITE_API_URL}/api`)
+        : '/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
@@ -15,17 +18,25 @@ api.interceptors.request.use(async (config) => {
     return config;
 });
 
-// Handle global errors (like 401 Unauthorized)
+// Handle global errors
 api.interceptors.response.use(
     (response) => response,
     async (error) => {
+        console.error('API Error:', {
+            url: error.config?.url,
+            method: error.config?.method,
+            status: error.response?.status,
+            data: error.response?.data,
+        });
+
         if (error.response?.status === 401) {
             console.error('Unauthorized! Signing out...');
             await supabase.auth.signOut();
-            window.location.reload(); // Force refresh to Auth page
+            window.location.reload();
         }
         return Promise.reject(error);
     }
 );
 
 export default api;
+

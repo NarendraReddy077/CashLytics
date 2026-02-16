@@ -40,6 +40,10 @@
    ```
    The application will be available at `http://localhost:5173`.
 
+## 🚢 Deployment
+For production deployment using **Docker Hub**, please refer to the [Deployment Guide](DEPLOYMENT.md).
+
+
 ### Local Development (Manual)
 
 #### Backend

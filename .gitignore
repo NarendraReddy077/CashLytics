@@ -4,3 +4,5 @@ __pycache__
 *.pyc
 .gitignore
 \supabase_schema.sql
+push_images.sh
+DEPLOYMENT.md
