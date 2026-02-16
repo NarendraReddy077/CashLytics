@@ -37,7 +37,7 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen relative overflow-hidden selection:bg-indigo-500/30">
             {/* Ambient Background Glows */}
-            <div className="fixed inset-0 bg-gradient-to-br from-indigo-300 to-orange-300 -z-10" />
+            {/* <div className="fixed inset-0 bg-gradient-to-br from-indigo-300 to-orange-300 -z-10" /> */}
             <div className="absolute top-[0%] right-[10%] w-[40%] h-[40%] rounded-full bg-indigo-500/5 blur-[120px] pointer-events-none" />
             <div className="absolute bottom-[10%] left-[5%] w-[50%] h-[50%] rounded-full bg-orange-500/5 blur-[140px] pointer-events-none" />
 
