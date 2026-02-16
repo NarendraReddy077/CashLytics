@@ -2,3 +2,6 @@
 node_modules
 __pycache__
 *.pyc
+.gitignore
+supabase_schema.sql
+deployment.md
