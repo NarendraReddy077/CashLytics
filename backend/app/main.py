@@ -21,6 +21,10 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api")
 app.include_router(transactions.router, prefix="/api")
 
+@app.get("/")
+async def root():
+    return {"message": "CashLytics API is running"}
+
 
 @app.get("/api/health")
 async def health_check():
